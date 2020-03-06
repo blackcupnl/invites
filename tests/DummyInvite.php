@@ -8,16 +8,16 @@ class DummyInvite extends Invite
 {
     public function send()
     {
-        // This method is called when the invite is sent.
+        event('DummyInvite.send');
     }
 
     public function accept()
     {
-        // This method is called when the invite is accepted.
+        event('DummyInvite.accept');
     }
 
     public function reject()
     {
-        // This method is called when the invite is rejected.
+        event('DummyInvite.reject');
     }
 }
