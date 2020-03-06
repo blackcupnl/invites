@@ -9,7 +9,7 @@
             "homepage": "https://www.blackcup.nl"
         }
     ],
-    "homepage": "https://github.com/blackcup/invites",
+    "homepage": "https://github.com/blackcupnl/invites",
     "keywords": ["Laravel", "Invites"],
     "require": {
         "illuminate/support": "~5|~6"

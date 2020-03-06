@@ -157,10 +157,7 @@ MIT. Please see the [license file](license.md) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/blackcup/invites.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/blackcup/invites.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/blackcup/invites/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
-
 [link-packagist]: https://packagist.org/packages/blackcup/invites
 [link-downloads]: https://packagist.org/packages/blackcup/invites
-[link-author]: https://github.com/blackcup
+[link-author]: https://github.com/blackcupnl
 [link-contributors]: ../../contributors
