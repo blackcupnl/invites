@@ -18,6 +18,7 @@ class InvitesServiceProvider extends ServiceProvider
         $this->loadJsonTranslationsFrom(resource_path('lang/vendor/invites'));
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'invites');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadFactoriesFrom(__DIR__.'/../database/factories');
 
         // Publish routes if they are enabled
         if (config('invites.routes', true)) {
