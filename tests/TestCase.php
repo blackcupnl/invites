@@ -9,7 +9,7 @@ abstract class TestCase extends TestbenchTestCase
     protected function setUp(): void
     {
         parent::setUp();
-
+        $this->withFactories(__DIR__.'/../database/factories');
         $this->artisan('migrate', ['--database' => 'testbench'])->run();
     }
 

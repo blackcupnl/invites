@@ -4,7 +4,7 @@ namespace BlackCup\Invites;
 
 use BlackCup\Invites\Models\Invite;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Notifications\Notification;
+use BlackCup\Invites\Invite as InviteImpl;
 use Illuminate\Support\Facades\Notification as NotificationFacade;
 
 class Invites
@@ -12,7 +12,7 @@ class Invites
     /**
      * Sends the given Invite implementation.
      *
-     * @param Invite $invite Invite implementation
+     * @param InviteImpl $invite Invite implementation
      * @param string $message Text to descripbe the invite
      * @param string $to_name Invite recipient name
      * @param string $to_email Invite recipient e-mail address
@@ -20,7 +20,7 @@ class Invites
      * @param string $from_email Invite sender e-mail address
      * @return string token for the sent Invite.
      **/
-    public function send(Invite $invite, string $message, string $to_name, string $to_email, $from_name, $from_email)
+    public function send(InviteImpl $invite, string $message, string $to_name, string $to_email, $from_name, $from_email)
     {
         $model = Invite::create([
             'from_name' => $from_name,
@@ -67,7 +67,7 @@ class Invites
         $model->reject()->save();
     }
 
-    private function notify(string $to, Invite $model, Notification $notification)
+    private function notify(string $to, Invite $model, string $notification)
     {
         if ($notification) {
             NotificationFacade::route('mail', $to)->notify(new $notification($model));
