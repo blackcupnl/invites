@@ -3,6 +3,7 @@
 namespace BlackCup\Invites\Notifications;
 
 use Illuminate\Bus\Queueable;
+use BlackCup\Invites\Models\Invite;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -16,9 +17,10 @@ class InvitedNotification extends Notification implements ShouldQueue
     /**
      * Create a new notification instance.
      *
+     * @param Invite $model
      * @return void
      */
-    public function __construct($model)
+    public function __construct(Invite $model)
     {
         $this->model = $model;
     }

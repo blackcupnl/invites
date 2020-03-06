@@ -4,6 +4,9 @@ namespace BlackCup\Invites\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * @see \BlackCup\Invites\Invite
+ */
 class Invites extends Facade
 {
     /**

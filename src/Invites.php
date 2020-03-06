@@ -2,22 +2,28 @@
 
 namespace BlackCup\Invites;
 
-use App\User;
-use Notification;
+use BlackCup\Invites\Models\Invite;
 use Illuminate\Support\Facades\Route;
-use BlackCup\Invites\Models\Invite as Model;
+use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Notification as NotificationFacade;
 
 class Invites
 {
-    public function send(Invite $invite, string $message, string $to_name, string $to_email, $from, $from_email = null)
+    /**
+     * Sends the given Invite implementation.
+     *
+     * @param Invite $invite Invite implementation
+     * @param string $message Text to descripbe the invite
+     * @param string $to_name Invite recipient name
+     * @param string $to_email Invite recipient e-mail address
+     * @param string $from_name Invite sender name
+     * @param string $from_email Invite sender e-mail address
+     * @return string token for the sent Invite.
+     **/
+    public function send(Invite $invite, string $message, string $to_name, string $to_email, $from_name, $from_email)
     {
-        if ($from instanceof User) {
-            $from_email = $from->email;
-            $from = $from->name;
-        }
-
-        $model = Model::create([
-            'from_name' => $from,
+        $model = Invite::create([
+            'from_name' => $from_name,
             'from_email' => $from_email,
             'to_name' => $to_name,
             'to_email' => $to_email,
@@ -31,7 +37,13 @@ class Invites
         return $model->token;
     }
 
-    public function accept(Model $model)
+    /**
+     * Accepts the given invite.
+     *
+     * @param Invite $model
+     * @return void
+     */
+    public function accept(Invite $model)
     {
         $invite = $model->payload;
 
@@ -40,7 +52,13 @@ class Invites
         $model->accept()->save();
     }
 
-    public function reject(Model $model)
+    /**
+     * rejects the given invite.
+     *
+     * @param Invite $model
+     * @return void
+     */
+    public function reject(Invite $model)
     {
         $invite = $model->payload;
 
@@ -49,13 +67,18 @@ class Invites
         $model->reject()->save();
     }
 
-    private function notify($to, $model, $notification)
+    private function notify(string $to, Invite $model, Notification $notification)
     {
         if ($notification) {
-            Notification::route('mail', $to)->notify(new $notification($model));
+            NotificationFacade::route('mail', $to)->notify(new $notification($model));
         }
     }
 
+    /**
+     * Publishes the routes for this package.
+     *
+     * @return void;
+     */
     public static function routes()
     {
         Route::group([
