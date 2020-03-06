@@ -15,7 +15,6 @@ class InvitesServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'invites');
-        $this->loadJsonTranslationsFrom(resource_path('lang/vendor/invites'));
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'invites');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 

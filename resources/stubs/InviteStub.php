@@ -4,7 +4,7 @@ namespace DummyNamespace;
 
 use BlackCup\Invites\Invite;
 
-class DummyInvite extends Invite
+class DummyClass extends Invite
 {
     /**
      * Execute Invite specific code on send.
