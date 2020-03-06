@@ -36,7 +36,7 @@ class Invites
         $invite = $model->payload;
 
         $invite->accept();
-        $this->notify($model->to_email, $model, $invite->accepted_notification);
+        $this->notify($model->from_email, $model, $invite->accepted_notification);
         $model->accept()->save();
     }
 
@@ -45,7 +45,7 @@ class Invites
         $invite = $model->payload;
 
         $invite->reject();
-        $this->notify($model->to_email, $model, $invite->rejected_notification);
+        $this->notify($model->from_email, $model, $invite->rejected_notification);
         $model->reject()->save();
     }
 
