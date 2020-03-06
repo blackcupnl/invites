@@ -8,7 +8,7 @@
     <p>@lang('invites::lang.confirm_'.$action)</p>
 
     <button class="btn btn-success" type="submit">@lang('invites::lang.yes')</button>
-    <a class="btn btn-danger" href="{{ route('invite.show', $invite) }}">@lang('invites::lang.no')</a>
+    <a class="btn btn-danger" href="{{ route('invites.show', $invite) }}">@lang('invites::lang.no')</a>
 
 </form>
 @endsection

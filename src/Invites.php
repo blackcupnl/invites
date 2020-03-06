@@ -63,10 +63,10 @@ class Invites
             'middleware' => 'web',
             'where' => ['action' => '(accept|reject)'],
         ], function () {
-            Route::get('invite/{invite}', 'InviteController@show')->name('invite.show');
-            Route::get('invite/{invite}/{action}', 'InviteController@action')->name('invite.action');
-            Route::post('invite/{invite}/{action}', 'InviteController@execute');
-            Route::get('invite/{invite}/completed', 'InviteController@completed')->name('invite.completed');
+            Route::get('invite/{invite}', 'InvitesController@show')->name('invites.show');
+            Route::get('invite/{invite}/{action}', 'InvitesController@action')->name('invites.action');
+            Route::post('invite/{invite}/{action}', 'InvitesController@execute')->name('invites.execute');
+            Route::get('invite/{invite}/completed', 'InvitesController@completed')->name('invites.completed');
         });
     }
 }

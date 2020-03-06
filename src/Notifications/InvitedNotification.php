@@ -47,6 +47,6 @@ class InvitedNotification extends Notification implements ShouldQueue
             ->greeting(trans('invites::lang.greeting', ['name' => $this->model->to_name]))
             ->line(trans('invites::lang.invite_received_long', ['name' => $this->model->from_name]))
             ->line("_{$this->model->message}_")
-            ->action(trans('invites::lang.open_invite'), route('invite.show', $this->model));
+            ->action(trans('invites::lang.open_invite'), route('invites.show', $this->model));
     }
 }

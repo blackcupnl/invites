@@ -13,8 +13,8 @@
 @endif
 
 <p>
-    <a class="btn btn-success" href="{{ route('invite.action', [$invite, 'accept']) }}">@lang('invites::lang.accept')</a>
-    <a class="btn btn-danger" href="{{ route('invite.action', [$invite, 'reject']) }}">@lang('invites::lang.reject')</a>
+    <a class="btn btn-success" href="{{ route('invites.action', [$invite, 'accept']) }}">@lang('invites::lang.accept')</a>
+    <a class="btn btn-danger" href="{{ route('invites.action', [$invite, 'reject']) }}">@lang('invites::lang.reject')</a>
 </p>
 
 @endsection

@@ -7,7 +7,7 @@ use BlackCup\Invites\Models\Invite;
 use BlackCup\Invites\Facades\Invites;
 use Illuminate\Auth\Middleware\Authenticate;
 
-class InviteController extends Controller
+class InvitesController extends Controller
 {
     public function __construct()
     {
@@ -21,7 +21,7 @@ class InviteController extends Controller
 
         $this->middleware(function ($request, $next) {
             if ($request->invite->status != Invite::OPEN) {
-                return redirect()->route('invite.completed', $request->invite);
+                return redirect()->route('invites.completed', $request->invite);
             }
 
             return $next($request);
@@ -42,13 +42,13 @@ class InviteController extends Controller
     {
         Invites::{$action}($invite);
 
-        return redirect()->route('invite.completed', $invite);
+        return redirect()->route('invites.completed', $invite);
     }
 
     public function completed(Invite $invite)
     {
         if ($invite->status == Invite::OPEN) {
-            return redirect()->route('invite.show', $invite);
+            return redirect()->route('invites.show', $invite);
         }
 
         return view('invites::completed')->with(['invite' => $invite]);
