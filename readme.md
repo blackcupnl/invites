@@ -66,7 +66,7 @@ Invites::send($invite, 'We would like to make you admin to our awesome site', 'J
 ## Resources
 Package resources can be published using:
 ``` bash
-php artisan vendor:publish --provider="BlackCup\InvitesServiceProvider" [--tag="..."]
+php artisan vendor:publish --provider="BlackCup\Invites\InvitesServiceProvider" [--tag="..."]
 ```
 (possible tags are `config`, `views`, `lang`)
 
